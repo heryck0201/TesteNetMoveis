@@ -204,16 +204,22 @@ namespace TesteNetMoveis.Controllers
                 return Redirect("Detalhe");
             }
         }
-
-        [HttpDelete]
+        [HttpGet]
         public IActionResult Apagar(int id)
+        {
+          
+            return View(id);
+        }
+
+        [HttpGet]
+        public IActionResult ApagarPost(int id)
         {
             try
             {
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri("https://62a0e2547b9345bcbe416e45.mockapi.io");
 
-                var returnRequest = client.GetAsync(" /api/v1/Imoveis/" + id).GetAwaiter().GetResult();
+                var returnRequest = client.DeleteAsync(" /api/v1/Imoveis/" + id).GetAwaiter().GetResult();
                 if (returnRequest.StatusCode.Equals(System.Net.HttpStatusCode.BadRequest))
                 {
                     TempData["MensagemSucesso"] = returnRequest.Content.ReadAsStringAsync().GetAwaiter().GetResult();
@@ -230,7 +236,7 @@ namespace TesteNetMoveis.Controllers
                 var returnContent = returnRequest.Content.ReadAsStringAsync().GetAwaiter().GetResult();
                 Imovel baseResult = JsonConvert.DeserializeObject<Imovel>(returnContent, new JsonSerializerSettings() { Culture = System.Globalization.CultureInfo.CurrentCulture });
 
-                return View(baseResult);
+                return View("Index");
             }
             catch (Exception ex)
             {

@@ -1,12 +1,12 @@
-﻿@model Imovel
+﻿@model Int32
 
 @{
     ViewData["Title"] = "Confirmarção apagar o imóvel";
 }
 
 <div class="text-center">
-    <h3>Realmente deseja apagar o imóvel(@Model.Id)?</h3>
+    <h3>Realmente deseja apagar o imóvel(@Model)?</h3>
 </div>
 
-<a class="btn btn-danger btn-block" asp-controller="Imovel" asp-action="Apagar" asp-route="@Model.Id" role="button">Confirmar exclusão</a>
+<a class="btn btn-danger btn-block" asp-controller="Imovel" asp-action="ApagarPost" asp-route-id="@Model" role="button">Confirmar exclusão</a>
 <a class="btn btn-secondary btn-block" asp-controller="Imovel" asp-action="Index" role="button">Voltar</a>
