@@ -1,0 +1,61 @@
+﻿@model List<Imovel>
+@{
+    ViewData["Title"] = "Listagem de Imóveis";
+}
+
+<div class="text-center">
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" role="button" asp-controller="Imovel" asp-action="CriarImovel">Adicionar novo Imóvel</a>
+    </div>
+    <br />
+
+    <h1 class="display-4">Listagem de Imóveis</h1>
+    <br />
+    <table class="table" id="table-contatos">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tipo de Imovel</th>
+                <th scope="col">Valor de venda imovel</th>
+                <th scope="col">Valor de locacao imovel</th>
+                <th scope="col">Endereco</th>
+                <th scope="col">Numero</th>
+                <th scope="col">Complemento</th>
+                <th scope="col">Bairro</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Cep</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (Imovel imovel in Model)
+                {
+                    <tr>
+                        <th scope="row">@imovel.Id</th>
+                        <td>@imovel.TipoImovel</td>
+                        <td>@imovel.ValorVendaImovel</td>
+                        <td>@imovel.ValorLocacaoImovel</td>
+                        <td>@imovel.Endereco</td>
+                        <td>@imovel.Numero</td>
+                        <td>@imovel.Complemento</td>
+                        <td>@imovel.Bairro</td>
+                        <td>@imovel.Cidade</td>
+                        <td>@imovel.Estado</td>
+                        <td>@imovel.Cep</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" class="btn btn-primary" asp-route-id="@imovel.Id" asp-controller="Imovel" asp-action="Editar">Editar</a>
+                                <a role="button" class="btn btn-danger" asp-route-id="@imovel.Id" asp-controller="Imovel" asp-action="Detalhe">Detalhe</a>
+                                <a role="button" class="btn btn-success" asp-route-id="@imovel.Id" asp-controller="Imovel" asp-action="Apagar">Apagar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+

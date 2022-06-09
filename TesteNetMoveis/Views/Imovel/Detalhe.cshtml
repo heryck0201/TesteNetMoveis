@@ -1,0 +1,51 @@
+﻿@model Imovel
+
+<div class="modal-body">
+    <div class="form-group row">
+        <label class="col-md-6 col-form-label" for="select"><strong>TipoImovel:</strong></label>
+        <label class="col-md-6 col-form-label" for="select">@Model.TipoImovel</label>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-6 col-form-label" for="select"><strong>ValorVendaImovel:</strong></label>
+        <label class="col-md-6 col-form-label" for="select">@Model.ValorVendaImovel</label>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-6 col-form-label" for="select"><strong>ValorLocacaoImovel:</strong></label>
+        <label class="col-md-6 col-form-label" for="select">@Model.ValorLocacaoImovel</label>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-6 col-form-label" for="select"><strong>Endereco:</strong></label>
+        <label class="col-md-6 col-form-label" for="select">@Model.Endereco</label>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-6 col-form-label" for="select"><strong>Numero:</strong></label>
+        <label class="col-md-6 col-form-label" for="select">@Model.Numero</label>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-6 col-form-label" for="select"><strong>Complemento:</strong></label>
+        <label class="col-md-6 col-form-label" for="select">@Model.Complemento</label>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-6 col-form-label" for="select"><strong>Bairro:</strong></label>
+        <label class="col-md-6 col-form-label" for="select">@Model.Bairro</label>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-6 col-form-label" for="select"><strong>Cidade:</strong></label>
+        <label class="col-md-6 col-form-label" for="select">@Model.Cidade</label>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-6 col-form-label" for="select"><strong>Estado:</strong></label>
+        <label class="col-md-6 col-form-label" for="select">@Model.Estado</label>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-6 col-form-label" for="select"><strong>Cep:</strong></label>
+        <label class="col-md-6 col-form-label" for="select">@Model.Cep</label>
+    </div>
+    <a class="btn btn-secondary btn-block" asp-controller="Imovel" asp-action="Index" role="button">Voltar</a>
+</div>
+
+<script>
+    $("#closeApplicationUser").click(function () {
+        $("#modalUsers").dialog("close");
+    });
+</script>
